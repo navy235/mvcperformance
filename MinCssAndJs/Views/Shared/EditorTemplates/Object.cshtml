@@ -1,0 +1,56 @@
+﻿@if (ViewData.TemplateInfo.TemplateDepth > 1)
+{
+    @ViewData.ModelMetadata.SimpleDisplayText
+}
+else
+{
+    foreach (var prop in ViewData.ModelMetadata.Properties.Where(pm => pm.ShowForEdit && !ViewData.TemplateInfo.Visited(pm)))
+    {
+        if (prop.HideSurroundingHtml)
+        {
+    @Html.Editor(prop.PropertyName)
+        }
+        else
+        {
+            var className = String.Empty;
+            var HintClass = string.Empty;
+            var HintSeparateTitle = string.Empty;
+            if (ViewData.ModelState[prop.PropertyName] != null && ViewData.ModelState[prop.PropertyName].Errors != null && ViewData.ModelState[prop.PropertyName].Errors.Count > 0)
+            {
+                className = "invalid";
+            }
+            if (prop.AdditionalValues.ContainsKey("HintClass"))
+            {
+                HintClass = "form-field-" + prop.AdditionalValues["HintClass"].ToString();
+            }
+            if (prop.AdditionalValues.ContainsKey("HintSeparateTitle"))
+            {
+                HintSeparateTitle = prop.AdditionalValues["HintSeparateTitle"].ToString();
+    <text>
+
+    <div class="form-title">
+        @HintSeparateTitle <span>带<b>*</b>为必填项</span>
+    </div>
+
+    </text>
+            }
+            
+            
+    <div class="form-field @className  @HintClass">
+        @*  @Html.Label((prop.IsRequired ? "<b>*</b>" : "") + (prop.DisplayName ?? prop.PropertyName))*@
+        @Html.Label(prop.PropertyName, new { @class = prop.IsRequired ? "form-field-lable-required" : "" })
+
+        @Html.Editor(prop.PropertyName)
+
+        @Html.ValidationMessage(prop.PropertyName)
+
+        @if (prop.AdditionalValues.ContainsKey("Hint"))
+        {
+            <span class="field-hint-message">@prop.AdditionalValues["Hint"]</span>
+        }
+
+
+    </div>
+        }
+    }
+}
