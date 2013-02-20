@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Minifier.Core</id>
+    <version>1.3</version>
+    <title>Minifier.Core</title>
+    <authors>Tore Lervik</authors>
+    <owners>Tore Lervik</owners>
+    <projectUrl>http://mindre.net/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A small library for minifying html and extending the ASP.NET Optimization library with additional functionality.</description>
+    <summary>A small library for minifying html and extending the ASP.NET Optimization library with additional functionality.</summary>
+    <dependencies>
+      <dependency id="WebActivator" version="1.4" />
+      <dependency id="Microsoft.Web.Optimization" version="0.1" />
+    </dependencies>
+  </metadata>
+</package>

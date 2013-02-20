@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>BundleMinifyInlineJsCss</id>
+    <version>1.0.1</version>
+    <authors>Imran Baloch</authors>
+    <owners>Imran Baloch</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>This package will allow an application to quickly minify all the inline css and javascript from the page. This package will also bundle css and javascript, means it will combine all the inline css and javascript, and then emit the combined javascript just before body closing tag and and the combined css just before head closing tag.</description>
+    <summary>Bundle and Minify inline css and js</summary>
+    <tags>ASP.NET</tags>
+    <dependencies>
+      <dependency id="WebGrease" version="1.0.0" />
+    </dependencies>
+  </metadata>
+</package>

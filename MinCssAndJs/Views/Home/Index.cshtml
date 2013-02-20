@@ -1,0 +1,32 @@
+﻿@using MinCssAndJs.Models
+@model Member
+@{
+    ViewBag.Title = "Index";
+}
+
+<style type="text/css">
+    .hadcode {
+        background: #ffd800;
+        color: #808080;
+        border: 1px solid #fff;
+        padding: 5px;
+    }
+</style>
+<h2>Index</h2>
+
+
+<div class="hadcode">
+    Then register the response filter. If you are using WebForm, you can register response filter in a master page and if you are MVC, you can use register response filter in an action filter.  
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.EditorForModel()
+}
+
+
+<script type="text/javascript">
+    var data = {
+        pointer: '123'
+    };
+</script>
