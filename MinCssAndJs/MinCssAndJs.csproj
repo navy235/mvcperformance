@@ -140,6 +140,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Filters\BundleMinifyInlineCssJsAttribute.cs" />
     <Compile Include="Filters\CompressHtmlAttribute.cs" />
+    <Compile Include="Filters\GenerateStaticAttribute.cs" />
     <Compile Include="Filters\GzipHtmlAttribute.cs" />
     <Compile Include="Filters\MinifyHtml.cs" />
     <Compile Include="Global.asax.cs">
@@ -238,6 +239,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\static\Home\Index\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

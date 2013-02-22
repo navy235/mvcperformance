@@ -17,6 +17,7 @@ namespace MinCssAndJs.Controllers
         //[CompressHtml(Order = 2)]
         //[BundleMinifyInlineCssJs(Order = 3)]
         //[MinifyHtml]
+        [GenerateStatic]
         public ActionResult Index()
         {
             return View(new MinCssAndJs.Models.Member());
