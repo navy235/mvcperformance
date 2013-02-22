@@ -40,6 +40,7 @@ namespace MinCssAndJs.Filters
         {
             private static readonly Regex RegexRemoveWhitespace = new Regex(">[\r\n][ \r\n\t]*<", RegexOptions.Multiline | RegexOptions.Compiled);
             private static readonly Regex RegexRemoveWhitespace2 = new Regex(">[ \r\n\t]+<", RegexOptions.Multiline | RegexOptions.Compiled);
+            private static readonly Regex RegexRemoveWhitespace3 = new Regex(@"(?<=[^])\t{2,}|(?<=[>])\s{2,}(?=[<])|(?<=[>])\s{2,11}(?=[<])|(?=[\n])\s{2,}", RegexOptions.Multiline | RegexOptions.Compiled);
             private Stream _sink;
             private long _position;
 
@@ -82,7 +83,7 @@ namespace MinCssAndJs.Filters
                 var data = new byte[count];
                 Buffer.BlockCopy(buffer, offset, data, 0, count);
                 string s = Encoding.Default.GetString(buffer);
-                s = FilterString(s);
+                s = FilterString2(s);
                 var outdata = Encoding.Default.GetBytes(s);
                 _sink.Write(outdata, 0, outdata.GetLength(0));
             }
@@ -94,6 +95,11 @@ namespace MinCssAndJs.Filters
                 return html;
             }
 
+            private string FilterString2(string html)
+            {
+                html = RegexRemoveWhitespace3.Replace(html, string.Empty);
+                return html;
+            }
         }
     }
 }
